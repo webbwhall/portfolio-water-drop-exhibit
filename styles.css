@@ -215,6 +215,12 @@ a:not(.brand):hover,
   background: rgba(4, 8, 22, 0.78);
   backdrop-filter: blur(16px);
   border-bottom: 1px solid var(--border-soft);
+  transition: background 0.2s ease, box-shadow 0.2s ease;
+}
+
+.site-header.is-scrolled {
+  background: rgba(4, 8, 22, 0.9);
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.28);
 }
 
 .header-inner {
@@ -243,6 +249,66 @@ a:not(.brand):hover,
   flex-wrap: wrap;
   gap: 0.35rem;
   justify-content: flex-end;
+}
+
+.nav-more {
+  position: relative;
+}
+
+.nav-more details {
+  position: relative;
+}
+
+.nav-more summary {
+  list-style: none;
+  padding: 0.45rem 0.72rem;
+  border-radius: 999px;
+  font-size: 0.82rem;
+  color: var(--muted);
+  cursor: pointer;
+  user-select: none;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.02);
+  transition: color 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+}
+
+.nav-more summary::-webkit-details-marker {
+  display: none;
+}
+
+.nav-more summary:hover {
+  color: var(--white);
+  background: rgba(61, 220, 255, 0.08);
+  border-color: rgba(120, 200, 255, 0.22);
+}
+
+.nav-more details[open] summary {
+  color: var(--white);
+  border-color: rgba(120, 200, 255, 0.28);
+}
+
+.nav-more-panel {
+  position: absolute;
+  right: 0;
+  top: calc(100% + 10px);
+  min-width: 220px;
+  padding: 0.55rem;
+  border-radius: 16px;
+  display: grid;
+  gap: 0.15rem;
+  background: rgba(8, 16, 32, 0.96);
+}
+
+.nav-more-panel a {
+  padding: 0.55rem 0.65rem;
+  border-radius: 12px;
+  color: var(--muted);
+  font-size: 0.88rem;
+}
+
+.nav-more-panel a:hover {
+  background: rgba(61, 220, 255, 0.08);
+  color: var(--white);
 }
 
 .site-nav a {
@@ -355,6 +421,33 @@ body.nav-open .nav-toggle-lines::after {
     padding: 0.55rem 0.75rem;
     border-radius: 10px;
   }
+
+  .nav-more summary {
+    width: 100%;
+    border-radius: 10px;
+  }
+
+  .nav-more-panel {
+    position: static;
+    min-width: unset;
+    margin-top: 0.4rem;
+  }
+}
+
+/* =====================================================================
+   Objective / assignment callout
+   ===================================================================== */
+.assignment-callout {
+  margin: 1.25rem 0 1.25rem;
+  padding: 1.1rem 1.25rem;
+}
+
+.assignment-callout .lead {
+  margin: 0.35rem 0 0.85rem;
+}
+
+.assignment-list .clean-list {
+  margin-top: 0.35rem;
 }
 
 /* =====================================================================

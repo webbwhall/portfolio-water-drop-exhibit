@@ -16,6 +16,17 @@
   let lastLightboxTrigger = null;
 
   /* ------------------------------------------------------------------ */
+  /* Header polish on scroll */
+  /* ------------------------------------------------------------------ */
+  if (header) {
+    const onScroll = () => {
+      header.classList.toggle("is-scrolled", window.scrollY > 8);
+    };
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+  }
+
+  /* ------------------------------------------------------------------ */
   /* Mobile navigation */
   /* ------------------------------------------------------------------ */
   if (navToggle && nav) {
@@ -30,6 +41,8 @@
       if (!anchor) return;
       document.body.classList.remove("nav-open");
       navToggle.setAttribute("aria-expanded", "false");
+      // Close the \"More\" dropdown if it was open
+      nav.querySelectorAll("details[open]").forEach((d) => d.removeAttribute("open"));
     });
   }
 

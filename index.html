@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Journey of a Water Drop: The Living Ohio River — immersive museum exhibit case study by Webb Hall." />
+  <title>Journey of a Water Drop | Exhibit Case Study</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@500;600;700;800&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header" id="top">
+    <div class="header-inner container">
+      <a class="brand" href="#hero" aria-label="Back to hero">Water Drop Exhibit</a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+        <span class="nav-toggle-lines" aria-hidden="true"></span>
+        <span class="sr-only">Open menu</span>
+      </button>
+      <nav class="site-nav" id="site-nav" aria-label="Primary">
+        <ul>
+          <li><a href="#overview">Overview</a></li>
+          <li><a href="#timeline">Timeline</a></li>
+          <li><a href="#why-it-matters">Why it matters</a></li>
+          <li><a href="#programs">Programs</a></li>
+          <li><a href="#big-idea">Big Idea</a></li>
+          <li><a href="#moodboards">Moodboards</a></li>
+          <li><a href="#final-direction">Final Direction</a></li>
+          <li><a href="#typography">Type & Brand</a></li>
+          <li><a href="#ai-exploration">AI Journey</a></li>
+          <li><a href="#sketches">Sketches</a></li>
+          <li><a href="#sitemap">IA / Sitemap</a></li>
+          <li><a href="#web-wireframes">Web</a></li>
+          <li><a href="#app-wireframes">App</a></li>
+          <li><a href="#testing">Testing</a></li>
+          <li><a href="#final-deliverables">Final</a></li>
+          <li><a href="#reflection">Reflection</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- HERO — REPLACE: hero-waterdrop.jpg (primary hero / aerial river graphic) -->
+    <section class="hero" id="hero" aria-labelledby="hero-title">
+      <div class="hero-bg ripple-layer" aria-hidden="true"></div>
+      <div class="hero-image-wrap reveal">
+        <img
+          class="hero-image"
+          src="assets/images/hero-waterdrop.jpg"
+          alt="Hero graphic for Journey of a Water Drop: river landscape with title typography."
+          fetchpriority="high"
+        />
+        <div class="hero-gradient"></div>
+      </div>
+      <div class="hero-content container reveal">
+        <p class="eyebrow">Museum Exhibit · Case Study</p>
+        <h1 id="hero-title">Journey of a Water Drop</h1>
+        <p class="hero-subtitle">The Living Ohio River</p>
+        <p class="hero-tagline">
+          An immersive educational exhibit following a single water droplet through the Ohio River ecosystem.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#overview">View Process</a>
+          <a class="btn btn-ghost" href="#final-deliverables">View Final Work</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-slim" id="timeline">
+      <div class="container reveal">
+        <h2 class="section-title">Process Timeline</h2>
+        <p class="section-intro">
+          A clear progression from early research to an immersive final experience.
+        </p>
+        <ol class="timeline glass" aria-label="Project process timeline">
+          <li><span class="dot"></span><span class="label">Research</span></li>
+          <li><span class="dot"></span><span class="label">Inspiration</span></li>
+          <li><span class="dot"></span><span class="label">AI Exploration</span></li>
+          <li><span class="dot"></span><span class="label">Sketches</span></li>
+          <li><span class="dot"></span><span class="label">Wireframes</span></li>
+          <li><span class="dot"></span><span class="label">App Flows</span></li>
+          <li><span class="dot"></span><span class="label">Testing</span></li>
+          <li><span class="dot"></span><span class="label">Final Deliverables</span></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section section-tint" id="overview">
+      <div class="container narrow reveal">
+        <h2 class="section-title">Project Overview</h2>
+        <p class="lead">
+          This project is an immersive museum exhibit concept where visitors follow one drop of water from rainfall in Cincinnati skies,
+          through streams and soil, into the Ohio River, and eventually into ecosystems, human life, treatment systems, and industry.
+          The goal is to make the water cycle feel like a story instead of just a science diagram.
+        </p>
+        <div class="card-grid quad">
+          <article class="info-card glass">
+            <h3>Role</h3>
+            <p>UX/UI Design, Exhibit Concept, Visual Design, Branding</p>
+          </article>
+          <article class="info-card glass">
+            <h3>Audience</h3>
+            <p>Families, students, young visitors, museum guests</p>
+          </article>
+          <article class="info-card glass">
+            <h3>Goal</h3>
+            <p>Make environmental science interactive, local, and memorable</p>
+          </article>
+          <article class="info-card glass">
+            <h3>Format</h3>
+            <p>Website, mobile app, signage, exhibit experience</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="why-it-matters">
+      <div class="container narrow reveal">
+        <h2 class="section-title">Why It Matters</h2>
+        <p class="lead">
+          The Ohio River affects millions of people across the region, but many visitors never think about where their water comes from or where it goes.
+          This exhibit was designed to make environmental systems feel personal, local, interactive, and memorable — not abstract or textbook-like.
+        </p>
+      </div>
+    </section>
+
+    <section class="section" id="programs">
+      <div class="container reveal">
+        <h2 class="section-title">Programs Used</h2>
+        <p class="section-intro">
+          Tools that supported structure, visuals, prototyping, collaboration, and this portfolio build.
+        </p>
+        <div class="tool-grid">
+          <div class="tool-card glass"><h3>Figma</h3><p>Wireframes, app design, website design</p></div>
+          <div class="tool-card glass"><h3>Photoshop</h3><p>Image editing, signage mockups, visual polish</p></div>
+          <div class="tool-card glass"><h3>Illustrator</h3><p>Graphics, layout elements, icons</p></div>
+          <div class="tool-card glass"><h3>Canva</h3><p>Presentation layout and quick visual drafts</p></div>
+          <div class="tool-card glass"><h3>ChatGPT / AI tools</h3><p>Ideation, prompt exploration, writing support, image generation</p></div>
+          <div class="tool-card glass"><h3>Miro</h3><p>Sitemap and flow planning</p></div>
+          <div class="tool-card glass"><h3>VS Code · HTML · CSS · JS</h3><p>Portfolio website build</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-dark" id="big-idea">
+      <div class="container reveal">
+        <h2 class="section-title">Big Idea</h2>
+        <div class="stack-lg">
+          <p class="prose prose-wide">
+            The exhibit frames water as a character with a journey. Visitors move through zones of the water cycle:
+            Precipitation Station, Collection City, Evaporation Enclave, and Condensation Country. Each zone teaches a different part
+            of the water cycle through physical installations, projection mapping, touch screens, app interactions, and guided storytelling.
+          </p>
+          <div class="flow-bar glass" role="presentation" aria-label="Water journey flow">
+            <span>Rainfall</span>
+            <span class="flow-arrow">→</span>
+            <span>Streams &amp; Soil</span>
+            <span class="flow-arrow">→</span>
+            <span>Ohio River</span>
+            <span class="flow-arrow">→</span>
+            <span>Human Life &amp; Ecosystems</span>
+            <span class="flow-arrow">→</span>
+            <span>Evaporation</span>
+            <span class="flow-arrow">→</span>
+            <span>Clouds</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="moodboards">
+      <div class="container reveal">
+        <h2 class="section-title">Moodboards &amp; Visual Direction</h2>
+        <p class="section-intro">
+          Early explorations anchored the exhibit in immersive blues, luminous highlights, and family-friendly clarity.
+        </p>
+        <div class="gallery gallery-2">
+          <!-- REPLACE: moodboard-concept.jpg (export from Concept Moodboard PDF) -->
+          <figure class="gallery-card glass">
+            <button type="button" class="lightbox-trigger" data-caption="Concept moodboard establishing river, atmosphere, and hero tone.">
+              <img src="assets/images/moodboard-concept.jpg" alt="Concept moodboard for the water drop exhibit." loading="lazy" />
+            </button>
+            <figcaption>Concept Moodboard · establishing the river-forward, atmospheric direction.</figcaption>
+          </figure>
+          <!-- REPLACE: moodboard-direction-a.jpg -->
+          <figure class="gallery-card glass">
+            <button type="button" class="lightbox-trigger" data-caption="Branding Direction A — energetic, playful, immersive for families.">
+              <img src="assets/images/moodboard-direction-a.jpg" alt="Branding Direction A moodboard." loading="lazy" />
+            </button>
+            <figcaption>Branding Direction A · energetic, immersive, family-friendly exploration.</figcaption>
+          </figure>
+          <!-- REPLACE: moodboard-direction-b.jpg -->
+          <figure class="gallery-card glass">
+            <button type="button" class="lightbox-trigger" data-caption="Branding Direction B — calmer elegance; inspiring but less kinetic for younger guests.">
+              <img src="assets/images/moodboard-direction-b.jpg" alt="Branding Direction B moodboard." loading="lazy" />
+            </button>
+            <figcaption>Branding Direction B · elegant calm; refined but less kinetic for youngest visitors.</figcaption>
+          </figure>
+          <figure class="gallery-card glass">
+            <button type="button" class="lightbox-trigger" data-caption="Direction A palette + typography notes (early system thinking).">
+              <img src="assets/images/direction-a-palette.jpg" alt="Direction A palette and typography notes." loading="lazy" />
+            </button>
+            <figcaption>Direction A System Notes · palette + type exploration for bold clarity.</figcaption>
+          </figure>
+          <figure class="gallery-card glass">
+            <button type="button" class="lightbox-trigger" data-caption="Direction B palette + typography notes (alternate, calmer system).">
+              <img src="assets/images/direction-b-palette.jpg" alt="Direction B palette and typography notes." loading="lazy" />
+            </button>
+            <figcaption>Direction B System Notes · alternate palette + type direction for a calmer tone.</figcaption>
+          </figure>
+          <figure class="gallery-card glass">
+            <button type="button" class="lightbox-trigger" data-caption="Visual comparison table between Direction A and Direction B.">
+              <img src="assets/images/direction-compare.jpg" alt="Visual comparison between Direction A and Direction B." loading="lazy" />
+            </button>
+            <figcaption>Direction Comparison · a quick decision lens for audience, mood, and impact.</figcaption>
+          </figure>
+        </div>
+        <aside class="callout glass reveal">
+          <p>
+            Direction A felt more energetic, playful, immersive, and family-friendly, so it became the stronger direction for the exhibit.
+            Direction B was elegant and calm, but felt less engaging for younger visitors.
+          </p>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section section-tint" id="final-direction">
+      <div class="container reveal">
+        <h2 class="section-title">Final Direction</h2>
+        <p class="section-intro">
+          A bold, immersive visual identity that feels museum-polished while staying inviting for families.
+        </p>
+
+        <div class="direction-grid">
+          <div class="glass direction-card">
+            <h3>Design Goals</h3>
+            <ul class="clean-list">
+              <li>Make science immersive</li>
+              <li>Encourage family interaction</li>
+              <li>Connect physical and digital experiences</li>
+              <li>Make the Ohio River feel local and personal</li>
+              <li>Create intuitive exhibit navigation</li>
+            </ul>
+          </div>
+
+          <figure class="glass direction-card">
+            <button type="button" class="lightbox-trigger" data-caption="Final direction: Direction A system notes (palette + type).">
+              <img src="assets/images/direction-a-palette.jpg" alt="Direction A palette and typography system notes." loading="lazy" />
+            </button>
+            <figcaption>Palette + Type System · tuned for high contrast, glow, and readability.</figcaption>
+          </figure>
+
+          <figure class="glass direction-card">
+            <button type="button" class="lightbox-trigger" data-caption="Personal choice rationale and final decision notes.">
+              <img src="assets/images/direction-choice.jpg" alt="Final direction rationale and decision notes." loading="lazy" />
+            </button>
+            <figcaption>Decision Rationale · Direction A supports curiosity, energy, and youth engagement.</figcaption>
+          </figure>
+        </div>
+
+        <div class="design-system-strip glass">
+          <div class="ds-colors">
+            <div class="swatch" style="--sw:#040814"></div>
+            <div class="swatch" style="--sw:#0a1430"></div>
+            <div class="swatch" style="--sw:#3ddcff"></div>
+            <div class="swatch" style="--sw:#4f8dff"></div>
+            <div class="swatch" style="--sw:#f5fbff"></div>
+          </div>
+          <div class="ds-typography">
+            <p class="ds-label">Typography</p>
+            <p class="ds-display">Display: Nunito</p>
+            <p class="ds-body">Body: Outfit</p>
+          </div>
+          <div class="ds-ui">
+            <p class="ds-label">UI Language</p>
+            <div class="ds-buttons">
+              <span class="mini-btn mini-primary">Primary</span>
+              <span class="mini-btn mini-ghost">Ghost</span>
+            </div>
+            <p class="ds-note">Rounded cards · soft glow · water ripple accents</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-tint" id="typography">
+      <div class="container reveal">
+        <h2 class="section-title">Typography &amp; Branding Exploration</h2>
+        <p class="section-intro">
+          I tested different headline styles to find a balance between playful, educational, and readable display type for large environmental graphics and digital screens.
+        </p>
+        <div class="gallery gallery-single">
+          <!-- REPLACE: type-treatment.jpg (from Make Type Treatment PDF) -->
+          <figure class="gallery-card glass">
+            <button type="button" class="lightbox-trigger" data-caption="Typography and logo/type treatment explorations">
+              <img src="assets/images/type-treatment.jpg" alt="Typography and logo type treatment explorations." loading="lazy" />
+            </button>
+            <figcaption>
+              Type treatment studies · approachable for families while polished enough for a museum-scale graphic system.
+            </figcaption>
+          </figure>
+        </div>
+        <p class="prose">
+          The chosen direction favors rounded forms and high-contrast outlines so headlines stay legible across hero imagery, signage, and app screens without feeling childish or overly ornamental.
+        </p>
+      </div>
+    </section>
+
+    <section class="section" id="ai-exploration">
+      <div class="container reveal">
+        <h2 class="section-title">AI Exploration Journey</h2>
+        <p class="section-intro">
+          Generative tools helped visualize atmosphere fast — then narrowed toward the Ohio River story.
+        </p>
+        <div class="gallery gallery-2">
+          <!-- REPLACE: ai-water-cycle-early.jpg -->
+          <figure class="gallery-card glass">
+            <button type="button" class="lightbox-trigger" data-caption="Early AI water-cycle visualization">
+              <img src="assets/images/ai-water-cycle-early.jpg" alt="Early AI-generated water cycle image." loading="lazy" />
+            </button>
+            <figcaption>Early Result · leaned literal and textbook.</figcaption>
+          </figure>
+          <!-- REPLACE: ai-museum-journey.jpg -->
+          <figure class="gallery-card glass">
+            <button type="button" class="lightbox-trigger" data-caption="Improved museum journey visualization">
+              <img src="assets/images/ai-museum-journey.jpg" alt="AI museum journey refinement." loading="lazy" />
+            </button>
+            <figcaption>Museum Journey Refinement · more spatial storytelling.</figcaption>
+          </figure>
+          <!-- REPLACE: ai-hero-banner-experiments.jpg -->
+          <figure class="gallery-card glass">
+            <button type="button" class="lightbox-trigger" data-caption="Hero / banner experiments — horizontal comps">
+              <img src="assets/images/ai-hero-banner-experiments.jpg" alt="Horizontal AI hero banner experiments." loading="lazy" />
+            </button>
+            <figcaption>Horizontal Banner Experiments · testing scale across wide hero formats.</figcaption>
+          </figure>
+          <!-- REPLACE: ai-final-heroes.jpg -->
+          <figure class="gallery-card glass">
+            <button type="button" class="lightbox-trigger" data-caption="Near-final hero compositions">
+              <img src="assets/images/ai-final-heroes.jpg" alt="Near-final AI hero options." loading="lazy" />
+            </button>
+            <figcaption>Final Hero Options · atmosphere aligned with the Living Ohio River narrative.</figcaption>
+          </figure>
+        </div>
+        <aside class="callout glass reveal">
+          <p>
+            The early AI results were too literal and looked like textbook diagrams. Through more specific prompts, the visuals became more immersive and focused on the Ohio River story.
+            AI became a starting point, not the final design by itself.
+          </p>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section section-tint" id="sketches">
+      <div class="container reveal">
+        <h2 class="section-title">Early Sketches</h2>
+        <p class="section-intro">
+          Paper-first planning clarified layout rhythm before digital wireframes.
+        </p>
+        <div class="gallery gallery-2">
+          <!-- REPLACE: sketches-website.jpg (home / about / tickets) -->
+          <figure class="gallery-card glass">
+            <button type="button" class="lightbox-trigger" data-caption="Website sketches — Home, About, Tickets responsive layouts">
+              <img src="assets/images/sketches-website.jpg" alt="Hand sketches for website Home, About, and Tickets pages." loading="lazy" />
+            </button>
+            <figcaption>Website IA Sketches · Home, About, Tickets structure and footer consistency.</figcaption>
+          </figure>
+          <!-- REPLACE: sketches-app-flow.jpg -->
+          <figure class="gallery-card glass">
+            <button type="button" class="lightbox-trigger" data-caption="Mobile app flow sketch">
+              <img src="assets/images/sketches-app-flow.jpg" alt="Sketch of mobile app flow." loading="lazy" />
+            </button>
+            <figcaption>App Flow Sketch · markers, checkpoints, progression through zones.</figcaption>
+          </figure>
+        </div>
+        <aside class="callout glass reveal">
+          <p>
+            These sketches helped plan main layout blocks, primary CTAs, navigation, image placements, ticketing steps, and page hierarchy before moving into digital wireframes.
+          </p>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section" id="sitemap">
+      <div class="container reveal">
+        <h2 class="section-title">Sitemap &amp; Information Architecture</h2>
+        <!-- REPLACE: sitemap.jpg (Final Sitemap PDF export) -->
+        <figure class="gallery-card glass gallery-single ia-card">
+          <button type="button" class="lightbox-trigger" data-caption="Final sitemap — website and exhibit learning paths">
+            <img src="assets/images/sitemap.jpg" alt="Final sitemap diagram for website and app." loading="lazy" />
+          </button>
+          <figcaption>Information Architecture · station-based zones and visitor movement through the cycle.</figcaption>
+        </figure>
+        <p class="prose">
+          The sitemap helped organize website and app structure so visitors move between introductory story content, explanation of stations, ticketing, and interactive learning without friction or dead ends.
+        </p>
+      </div>
+    </section>
+
+    <section class="section section-dark" id="web-wireframes">
+      <div class="container reveal">
+        <h2 class="section-title">Website Wireframes</h2>
+        <p class="section-intro">
+          A before → iterate → refine arc for Home, About / Explore Cycle, and Tickets while keeping Cincinnati Museum Center header/footer patterns cohesive.
+        </p>
+        <div class="compare-grid">
+          <article class="compare-card glass">
+            <h3>Hand Sketches</h3>
+            <!-- REPLACE: web-sketches.jpg -->
+            <figure>
+              <button type="button" class="lightbox-trigger" data-caption="Hand-drawn responsive website wireframes">
+                <img src="assets/images/web-sketches.jpg" alt="Hand-drawn responsive website sketches." loading="lazy" />
+              </button>
+              <figcaption>Rapid framing of hero CTAs and alternating content stripes.</figcaption>
+            </figure>
+          </article>
+          <article class="compare-card glass">
+            <h3>Low Fidelity</h3>
+            <!-- REPLACE: lofi-wireframes.jpg -->
+            <figure>
+              <button type="button" class="lightbox-trigger" data-caption="Low fidelity web wireframes — Home / Explore / Tickets">
+                <img src="assets/images/lofi-wireframes.png" alt="Low fidelity website wireframes." loading="lazy" />
+              </button>
+              <figcaption>Structural boxes, navigation scaffolding, repeatable components.</figcaption>
+            </figure>
+          </article>
+          <article class="compare-card glass">
+            <h3>Refined Screen</h3>
+            <!-- REPLACE: web-screen-refined.jpg -->
+            <figure>
+              <button type="button" class="lightbox-trigger" data-caption="Higher fidelity refined website composition">
+                <img src="assets/images/web-screen-refined.jpg" alt="Refined website screen composition." loading="lazy" />
+              </button>
+              <figcaption>Higher fidelity pass balancing rhythm, headlines, imagery, CTAs.</figcaption>
+            </figure>
+          </article>
+        </div>
+        <p class="prose prose-wide">
+          The website introduces the exhibit, explains each cycle station narrative, routes guests to ticket purchase, and keeps CMC-aligned navigation/visual anchors so the digital layer feels native to museum operations.
+        </p>
+      </div>
+    </section>
+
+    <section class="section" id="app-wireframes">
+      <div class="container reveal">
+        <h2 class="section-title">Mobile App Wireframes &amp; Workflows</h2>
+        <p class="section-intro">
+          The companion experience supports on-floor discovery, learning checks, badge collection, and progress tracking aligned to physical installations.
+        </p>
+        <div class="story-cards">
+          <article class="story-card glass">
+            <div class="story-media">
+              <!-- REPLACE: app-ar-scan.jpg -->
+              <button type="button" class="lightbox-trigger" data-caption="AR scanning journey screens">
+                <img src="assets/images/app-ar-scan.png" alt="Mobile wireframes for AR scanning journey." loading="lazy" />
+              </button>
+            </div>
+            <div class="story-body">
+              <h3>AR Scanning Journey</h3>
+              <p>Visitors launch guided moments when scanning station markers mapped to immersive story beats.</p>
+            </div>
+          </article>
+          <article class="story-card glass">
+            <div class="story-media">
+              <!-- REPLACE: app-collect-stations.jpg -->
+              <button type="button" class="lightbox-trigger" data-caption="Add stations to collection flow">
+                <img src="assets/images/app-collect-stations.png" alt="Wireframes for collecting stations." loading="lazy" />
+              </button>
+            </div>
+            <div class="story-body">
+              <h3>Add Stations to Collection</h3>
+              <p>Guests save zones they discover — reinforcing exploration and pacing across the pathway.</p>
+            </div>
+          </article>
+          <article class="story-card glass">
+            <div class="story-media">
+              <!-- REPLACE: app-complete-cycle.jpg -->
+              <button type="button" class="lightbox-trigger" data-caption="Complete water cycle celebration">
+                <img src="assets/images/app-complete-cycle.png" alt="Wireframes for completing the water cycle." loading="lazy" />
+              </button>
+            </div>
+            <div class="story-body">
+              <h3>Complete Water Cycle Journey</h3>
+              <p>A celebratory culmination ties ecosystems, human systems, and evaporation arcs back together.</p>
+            </div>
+          </article>
+          <article class="story-card glass">
+            <div class="story-media">
+              <!-- REPLACE: app-learning-flow.jpg (or app-workflow.jpg) -->
+              <button type="button" class="lightbox-trigger" data-caption="Interactive station learning checkpoints">
+                <img src="assets/images/app-workflow.jpg" alt="Interactive learning flow wireframes." loading="lazy" />
+              </button>
+            </div>
+            <div class="story-body">
+              <h3>Interactive Station Learning Flow</h3>
+              <p>Short prompts, feedback, and progress cues scaffold science content without disrupting floor flow.</p>
+            </div>
+          </article>
+        </div>
+        <aside class="callout glass reveal">
+          <p>
+            The mobile app anchors the exhibit on the gallery floor — scan markers, interact with quizzes, unlock badges,
+            and follow a cohesive journey aligned with precipitation, collection, evaporation, and condensation zones.
+          </p>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section section-tint" id="testing">
+      <div class="container reveal">
+        <h2 class="section-title">Usability Testing &amp; Improvements</h2>
+        <p class="section-intro">
+          Validation focused on wayfinding cues, ticketing clarity, and perceived interactivity versus static content.
+        </p>
+        <p class="prose prose-wide">
+          Participants generally understood ticketing steps, though some were unsure where they could safely tap or probe without breaking narrative flow.
+          Iterations prioritized explicit affordances, bolder hierarchy for exploratory modules, clearer selected controls in scheduling, and tightened feedback within learning sequences.
+        </p>
+        <div class="test-grid">
+          <article class="test-card glass">
+            <p class="test-label problem">Problem</p>
+            <p>Visitors missed subtle interactive cues on complex panels.</p>
+            <p class="test-label change">Change</p>
+            <p>Introduced bolder prompts, segmented buttons, and motion hints where appropriate.</p>
+          </article>
+          <article class="test-card glass">
+            <p class="test-label problem">Problem</p>
+            <p>Explore / Stations visuals blended into informational sections.</p>
+            <p class="test-label change">Change</p>
+            <p>Increased typographic hierarchy, breathing room, and contrast blocks for scan-friendly discovery.</p>
+          </article>
+          <article class="test-card glass">
+            <p class="test-label problem">Problem</p>
+            <p>Ticket time selection states felt tentative.</p>
+            <p class="test-label change">Change</p>
+            <p>Strengthened active + hover treatments and paired labels with confirmations.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="final-deliverables">
+      <div class="container reveal">
+        <h2 class="section-title">Final Deliverables</h2>
+        <p class="section-intro">
+          High fidelity outcomes spanning web surfaces, companion app comps, signage, hero art, typography, environmental visuals,
+          plus supporting workflows from Figma and presentation decks.
+        </p>
+        <div class="gallery gallery-3">
+          <!-- REPLACE: final-website.jpg -->
+          <figure class="gallery-card glass">
+            <button type="button" class="lightbox-trigger" data-caption="Final website screens">
+              <img src="assets/images/final-website.jpg" alt="Final website design screens." loading="lazy" />
+            </button>
+            <figcaption>Final Website Screens</figcaption>
+          </figure>
+          <!-- REPLACE: final-app.jpg -->
+          <figure class="gallery-card glass">
+            <button type="button" class="lightbox-trigger" data-caption="Final mobile app compositions">
+              <img src="assets/images/final-app.jpg" alt="Final mobile application screens." loading="lazy" />
+            </button>
+            <figcaption>Final App Screens</figcaption>
+          </figure>
+          <!-- REPLACE: final-signage.jpg -->
+          <figure class="gallery-card glass">
+            <button type="button" class="lightbox-trigger" data-caption="Featured signage mockup (A‑frame)">
+              <img src="assets/images/final-signage.jpg" alt="Environmental signage mockups." loading="lazy" />
+            </button>
+            <figcaption>Featured Signage Mockup</figcaption>
+          </figure>
+          <!-- REPLACE: final-hero-graphics.jpg -->
+          <figure class="gallery-card glass">
+            <button type="button" class="lightbox-trigger" data-caption="Hero graphics">
+              <img src="assets/images/final-hero-graphics.jpg" alt="Hero marketing graphics." loading="lazy" />
+            </button>
+            <figcaption>Hero Graphics</figcaption>
+          </figure>
+          <!-- REPLACE: final-type.jpg -->
+          <figure class="gallery-card glass">
+            <button type="button" class="lightbox-trigger" data-caption="Final type treatments">
+              <img src="assets/images/final-type.jpg" alt="Final type treatment lockups." loading="lazy" />
+            </button>
+            <figcaption>Type Treatment Finals</figcaption>
+          </figure>
+          <!-- REPLACE: final-exhibit.jpg -->
+          <figure class="gallery-card glass">
+            <button type="button" class="lightbox-trigger" data-caption="Environmental exhibit visuals">
+              <img src="assets/images/final-exhibit.jpg" alt="Environmental exhibit visuals." loading="lazy" />
+            </button>
+            <figcaption>Environmental Exhibit Visuals</figcaption>
+          </figure>
+          <!-- REPLACE: deliverable-extra-1.jpg — optional additional export -->
+          <figure class="gallery-card glass">
+            <button type="button" class="lightbox-trigger" data-caption="Supplemental polished mockup">
+              <img src="assets/images/deliverable-extra-1.jpg" alt="Additional polished deliverable." loading="lazy" />
+            </button>
+            <figcaption>Supplemental Polished Artifact</figcaption>
+          </figure>
+        </div>
+
+        <div class="subgallery reveal">
+          <h3 class="subgallery-title">Signage Set</h3>
+          <div class="gallery gallery-3">
+            <figure class="gallery-card glass">
+              <button type="button" class="lightbox-trigger" data-caption="Directory wall signage mockup">
+                <img src="assets/images/signage-directory-wall.jpg" alt="Directory wall signage mockup." loading="lazy" />
+              </button>
+              <figcaption>Directory Wall</figcaption>
+            </figure>
+            <figure class="gallery-card glass">
+              <button type="button" class="lightbox-trigger" data-caption="Overhang / hallway banner signage mockup">
+                <img src="assets/images/signage-banner-hallway.jpg" alt="Overhang banner signage mockup." loading="lazy" />
+              </button>
+              <figcaption>Overhang Banner</figcaption>
+            </figure>
+            <figure class="gallery-card glass">
+              <button type="button" class="lightbox-trigger" data-caption="Elevator directory signage mockup">
+                <img src="assets/images/signage-elevator-directory.jpg" alt="Elevator directory signage mockup." loading="lazy" />
+              </button>
+              <figcaption>Elevator Directory</figcaption>
+            </figure>
+            <figure class="gallery-card glass">
+              <button type="button" class="lightbox-trigger" data-caption="Collection City door poster mockup">
+                <img src="assets/images/signage-collection-door.jpg" alt="Collection City door signage mockup." loading="lazy" />
+              </button>
+              <figcaption>Collection City Poster</figcaption>
+            </figure>
+            <figure class="gallery-card glass">
+              <button type="button" class="lightbox-trigger" data-caption="Corner arrow signage mockup">
+                <img src="assets/images/signage-corner-arrow.jpg" alt="Corner arrow signage mockup." loading="lazy" />
+              </button>
+              <figcaption>Corner Arrow</figcaption>
+            </figure>
+            <figure class="gallery-card glass">
+              <button type="button" class="lightbox-trigger" data-caption="Poster mockup (Continue Up)">
+                <img src="assets/images/signage-continue-up.jpg" alt="Poster mockup showing continue up direction." loading="lazy" />
+              </button>
+              <figcaption>Poster Mockup</figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-dark" id="reflection">
+      <div class="container narrow reveal">
+        <h2 class="section-title">Reflection</h2>
+        <blockquote class="quote glass">
+          <p>
+            This project helped me understand how a design system can connect physical space, digital interaction, storytelling,
+            and education. I carried a broad immersive idea through exhibit identity decisions — branding, UX journeys, annotated wireframes,
+            app concepts supporting on-floor scans, signage, and hero illustrations — while iterating with real usability feedback.
+          </p>
+          <p>
+            The biggest challenge was making the water cycle feel immersive rather than schematic. The breakthrough came from narrowing the story
+            to one droplet traversing Cincinnati rainfall into the Ohio River, then layering human and ecological intersections on that arc.
+          </p>
+        </blockquote>
+      </div>
+    </section>
+
+    <section class="section section-tint" id="contact">
+      <div class="container footer-grid reveal">
+        <div>
+          <h2 class="section-title">Contact</h2>
+          <p class="lead footer-lead">
+            Webb Hall<br />
+            Emerging Technology in Business and Design<br />
+            Miami University
+          </p>
+          <!-- REPLACE placeholders with your links -->
+          <p>
+            <a class="footer-link" href="mailto:youremail@miamioh.edu">youremail@miamioh.edu</a>
+          </p>
+          <p>
+            <a class="footer-link" href="https://www.linkedin.com/" target="_blank" rel="noreferrer noopener">LinkedIn Profile</a>
+          </p>
+          <button class="btn btn-primary to-top" type="button">Back to top</button>
+        </div>
+        <div class="footer-meta glass">
+          <p class="eyebrow tiny">Credits</p>
+          <p>Case study authored for academic review. Exhibit concept and visuals by Webb Hall unless captioned otherwise.</p>
+          <p class="tiny muted">Upload tip: drag this folder as-is to Neocities or connect the repo to GitHub Pages root.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div class="lightbox" id="lightbox" hidden aria-modal="true" role="dialog" aria-labelledby="lightbox-caption">
+    <div class="lightbox-backdrop" data-close-lightbox tabindex="-1"></div>
+    <div class="lightbox-panel glass">
+      <button class="lightbox-close" type="button" aria-label="Close enlarged image" data-close-lightbox>&times;</button>
+      <img id="lightbox-image" alt="" />
+      <p id="lightbox-caption"></p>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

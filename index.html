@@ -11,8 +11,6 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <a class="skip-link" href="#main">Skip to content</a>
-
   <header class="site-header" id="top">
     <div class="header-inner container">
       <a class="brand" href="#hero" aria-label="Back to hero">Water Drop Exhibit</a>
@@ -24,8 +22,10 @@
         <ul>
           <li><a href="#overview">Overview</a></li>
           <li><a href="#programs">Programs</a></li>
-          <li><a href="#web-wireframes">Wireframes</a></li>
-          <li><a href="#final-deliverables">Final</a></li>
+          <li><a href="#wireframes">Wireframes</a></li>
+          <li><a href="#wayfinding-ui">Wayfinding / UI</a></li>
+          <li><a href="#final-website">Final Website</a></li>
+          <li><a href="#final-app">Final App</a></li>
           <li><a href="#contact">Contact</a></li>
 
           <li class="nav-more">
@@ -34,14 +34,10 @@
               <div class="nav-more-panel glass" role="menu" aria-label="More sections">
                 <a href="#timeline" role="menuitem">Timeline</a>
                 <a href="#why-it-matters" role="menuitem">Why it matters</a>
-                <a href="#big-idea" role="menuitem">Big idea</a>
-                <a href="#moodboards" role="menuitem">Moodboards</a>
-                <a href="#final-direction" role="menuitem">Final direction</a>
-                <a href="#typography" role="menuitem">Type &amp; brand</a>
-                <a href="#ai-exploration" role="menuitem">AI journey</a>
+                <a href="#moodboard-process" role="menuitem">Moodboard &amp; process</a>
                 <a href="#sketches" role="menuitem">Sketches</a>
                 <a href="#sitemap" role="menuitem">IA / sitemap</a>
-                <a href="#app-wireframes" role="menuitem">App flows</a>
+                <a href="#interactive-app" role="menuitem">Interactive app</a>
                 <a href="#testing" role="menuitem">Testing</a>
                 <a href="#reflection" role="menuitem">Reflection</a>
               </div>
@@ -59,7 +55,7 @@
       <div class="hero-image-wrap reveal">
         <img
           class="hero-image"
-          src="assets/images/hero-waterdrop.jpg"
+          src="assets/images/water cycle exhibit hero image 2.jpg"
           alt="Hero graphic for Journey of a Water Drop: river landscape with title typography."
           fetchpriority="high"
         />
@@ -74,8 +70,8 @@
         </p>
         <div class="hero-actions">
           <a class="btn btn-primary" href="#overview">View Process</a>
-          <a class="btn btn-ghost" href="#web-wireframes">View Wireframes</a>
-          <a class="btn btn-ghost" href="#final-deliverables">View Final Work</a>
+          <a class="btn btn-ghost" href="#wireframes">View Wireframes</a>
+          <a class="btn btn-ghost" href="#final-website">View Final Website</a>
         </div>
       </div>
     </section>
@@ -108,11 +104,16 @@
             Build a professional portfolio that showcases your work on the exhibit project. This portfolio serves as a comprehensive and polished presentation of the design process, tools, and final deliverables.
           </p>
           <div class="assignment-list">
-            <p class="eyebrow tiny">Assignment focus (beginnings)</p>
+            <p class="eyebrow tiny">Assignment sections</p>
             <ul class="clean-list">
-              <li><strong>Project overview</strong> — brief description and purpose</li>
-              <li><strong>Programs used</strong> — software/tools used in the process</li>
-              <li><strong>Wireframes</strong> — sketches and wireframes that guided the design</li>
+              <li><strong>Project overview</strong> — purpose and scope</li>
+              <li><strong>Programs used</strong> — tools and what they were used for</li>
+              <li><strong>Wireframes</strong> — sketches + lo‑fi structure</li>
+              <li><strong>Wayfinding, UI &amp; design elements</strong> — signage + UI language</li>
+              <li><strong>Final website</strong> — completed web screens</li>
+              <li><strong>Final app</strong> — completed app screens</li>
+              <li><strong>App as an interactive product</strong> — interaction + UX flow</li>
+              <li><strong>Moodboard &amp; creation process</strong> — inspiration, iterations, decisions</li>
             </ul>
           </div>
         </aside>
@@ -196,9 +197,9 @@
       </div>
     </section>
 
-    <section class="section" id="moodboards">
+    <section class="section" id="moodboard-process">
       <div class="container reveal">
-        <h2 class="section-title">Moodboards &amp; Visual Direction</h2>
+        <h2 class="section-title">Moodboard &amp; Creation Process</h2>
         <p class="section-intro">
           Early explorations anchored the exhibit in immersive blues, luminous highlights, and family-friendly clarity.
         </p>
@@ -425,11 +426,11 @@
       </div>
     </section>
 
-    <section class="section section-dark" id="web-wireframes">
+    <section class="section section-dark" id="wireframes">
       <div class="container reveal">
-        <h2 class="section-title">Website Wireframes</h2>
+        <h2 class="section-title">Wireframes</h2>
         <p class="section-intro">
-          A before → iterate → refine arc for Home, About / Explore Cycle, and Tickets while keeping Cincinnati Museum Center header/footer patterns cohesive.
+          Early sketches → low fidelity structure → refined layout decisions for the website and ticketing flow.
         </p>
         <div class="compare-grid">
           <article class="compare-card glass">
@@ -469,11 +470,11 @@
       </div>
     </section>
 
-    <section class="section" id="app-wireframes">
+    <section class="section" id="interactive-app">
       <div class="container reveal">
-        <h2 class="section-title">Mobile App Wireframes &amp; Workflows</h2>
+        <h2 class="section-title">App as an Interactive Product</h2>
         <p class="section-intro">
-          The companion experience supports on-floor discovery, learning checks, badge collection, and progress tracking aligned to physical installations.
+          The companion app supports the physical exhibit by guiding interaction, scanning stations, and tracking progress through the cycle.
         </p>
         <div class="story-cards">
           <article class="story-card glass">
@@ -563,6 +564,83 @@
             <p class="test-label change">Change</p>
             <p>Strengthened active + hover treatments and paired labels with confirmations.</p>
           </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-tint" id="wayfinding-ui">
+      <div class="container reveal">
+        <h2 class="section-title">Wayfinding, UI &amp; Design Elements</h2>
+        <p class="section-intro">
+          Environmental graphics and wayfinding elements that carry the same visual language as the digital UI: deep navy, cyan glow, strong hierarchy, and clear directional cues.
+        </p>
+        <div class="gallery gallery-3 gallery-readable">
+          <figure class="gallery-card glass">
+            <button type="button" class="lightbox-trigger" data-caption="Featured A-frame promotional signage">
+              <img src="assets/images/signage-a-frame.jpg" alt="A-frame promotional signage mockup." loading="lazy" />
+            </button>
+            <figcaption>A‑frame Promo Sign</figcaption>
+          </figure>
+          <figure class="gallery-card glass">
+            <button type="button" class="lightbox-trigger" data-caption="Directory wayfinding signage">
+              <img src="assets/images/signage-directory-wall.jpg" alt="Directory wayfinding signage mockup." loading="lazy" />
+            </button>
+            <figcaption>Directory Sign</figcaption>
+          </figure>
+          <figure class="gallery-card glass">
+            <button type="button" class="lightbox-trigger" data-caption="Overhang banner for directional navigation">
+              <img src="assets/images/signage-banner-hallway.jpg" alt="Overhang banner signage mockup." loading="lazy" />
+            </button>
+            <figcaption>Overhang Banner</figcaption>
+          </figure>
+          <figure class="gallery-card glass">
+            <button type="button" class="lightbox-trigger" data-caption="Corner arrow signage for flow-through navigation">
+              <img src="assets/images/signage-corner-arrow.jpg" alt="Corner arrow signage mockup." loading="lazy" />
+            </button>
+            <figcaption>Corner Arrow</figcaption>
+          </figure>
+          <figure class="gallery-card glass">
+            <button type="button" class="lightbox-trigger" data-caption="Poster signage applied in a real environment">
+              <img src="assets/images/signage-continue-up.jpg" alt="Poster signage mockup." loading="lazy" />
+            </button>
+            <figcaption>Poster Mockup</figcaption>
+          </figure>
+          <figure class="gallery-card glass">
+            <button type="button" class="lightbox-trigger" data-caption="Elevator directory signage">
+              <img src="assets/images/signage-elevator-directory.jpg" alt="Elevator directory signage mockup." loading="lazy" />
+            </button>
+            <figcaption>Elevator Directory</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="final-website">
+      <div class="container reveal">
+        <h2 class="section-title">Final Website</h2>
+        <p class="section-intro">Key final screens showing the exhibit story, stations, and ticketing flow.</p>
+        <div class="gallery gallery-single">
+          <figure class="gallery-card glass">
+            <button type="button" class="lightbox-trigger" data-caption="Final website screens">
+              <img src="assets/images/final-website.jpg" alt="Final website design screens." loading="lazy" />
+            </button>
+            <figcaption>Final Website Screens</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-dark" id="final-app">
+      <div class="container reveal">
+        <h2 class="section-title">Final App</h2>
+        <p class="section-intro">The finished companion app screens and UI system used throughout the interactive experience.</p>
+        <div class="gallery gallery-single">
+          <figure class="gallery-card glass">
+            <button type="button" class="lightbox-trigger" data-caption="Final mobile app screens">
+              <img src="assets/images/final-app.jpg" alt="Final mobile application screens." loading="lazy" />
+            </button>
+            <figcaption>Final App Screens</figcaption>
+          </figure>
         </div>
       </div>
     </section>

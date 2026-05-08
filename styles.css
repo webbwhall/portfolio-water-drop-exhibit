@@ -117,17 +117,7 @@ a:not(.brand):hover,
   border: 0;
 }
 
-.skip-link:focus {
-  position: fixed;
-  top: 8px;
-  left: 8px;
-  z-index: 1000;
-  padding: 0.75rem 1rem;
-  background: var(--cyan);
-  color: var(--navy);
-  border-radius: 8px;
-  outline: none;
-}
+/* Skip link removed per assignment styling request */
 
 /* =====================================================================
    UTILITIES — layout
@@ -522,6 +512,7 @@ body.nav-open .nav-toggle-lines::after {
   object-fit: cover;
   border-radius: 0;
   filter: saturate(1.05) contrast(1.05);
+  transform: scale(1.02);
 }
 
 .hero-gradient {
@@ -792,6 +783,41 @@ body.nav-open .nav-toggle-lines::after {
 .gallery-card img {
   border-radius: calc(var(--radius-lg) - 6px);
   width: 100%;
+}
+
+.gallery-card img {
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+}
+
+.gallery-single .gallery-card img,
+.ia-card img {
+  aspect-ratio: auto;
+  object-fit: contain;
+}
+
+.gallery-readable img {
+  aspect-ratio: auto;
+  object-fit: contain;
+  background: rgba(0, 0, 0, 0.22);
+}
+
+.compare-card img {
+  aspect-ratio: auto;
+  object-fit: contain;
+  background: rgba(0, 0, 0, 0.22);
+}
+
+.gallery-card {
+  border-radius: var(--radius-lg);
+}
+
+.gallery-card:hover img {
+  transform: scale(1.02);
+}
+
+.gallery-card img {
+  transition: transform 0.35s ease;
 }
 
 .lightbox-trigger {

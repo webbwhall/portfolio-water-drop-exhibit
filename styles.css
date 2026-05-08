@@ -140,6 +140,7 @@ a:not(.brand):hover,
 
 .section-slim {
   padding-block: clamp(2.5rem, 7vw, 3.75rem);
+  scroll-margin-top: calc(var(--header-offset) + 12px);
 }
 
 .section::before {
@@ -217,12 +218,13 @@ a:not(.brand):hover,
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 1rem;
+  gap: 0.75rem;
   min-height: 72px;
   padding-inline: clamp(12px, 3vw, 8px);
 }
 
 .brand {
+  flex-shrink: 0;
   font-family: var(--font-display);
   letter-spacing: 0.03em;
   font-weight: 800;
@@ -231,81 +233,50 @@ a:not(.brand):hover,
   color: var(--cyan);
 }
 
+/* Nav sits in the remaining width; scrolls horizontally instead of wrapping */
+.site-nav {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  justify-content: flex-end;
+}
+
 .site-nav ul {
   list-style: none;
   padding: 0;
   margin: 0;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.35rem;
+  padding-block: 2px;
+  display: inline-flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: clamp(0.12rem, 0.55vw, 0.38rem);
   justify-content: flex-end;
+  max-width: 100%;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scrollbar-width: thin;
 }
 
-.nav-more {
-  position: relative;
+.site-nav ul::-webkit-scrollbar {
+  height: 4px;
 }
 
-.nav-more details {
-  position: relative;
-}
-
-.nav-more summary {
-  list-style: none;
-  padding: 0.45rem 0.72rem;
+.site-nav ul::-webkit-scrollbar-thumb {
+  background: rgba(120, 200, 255, 0.22);
   border-radius: 999px;
-  font-size: 0.82rem;
-  color: var(--muted);
-  cursor: pointer;
-  user-select: none;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  background: rgba(255, 255, 255, 0.02);
-  transition: color 0.2s ease, background 0.2s ease, border-color 0.2s ease;
 }
 
-.nav-more summary::-webkit-details-marker {
-  display: none;
-}
-
-.nav-more summary:hover {
-  color: var(--white);
-  background: rgba(61, 220, 255, 0.08);
-  border-color: rgba(120, 200, 255, 0.22);
-}
-
-.nav-more details[open] summary {
-  color: var(--white);
-  border-color: rgba(120, 200, 255, 0.28);
-}
-
-.nav-more-panel {
-  position: absolute;
-  right: 0;
-  top: calc(100% + 10px);
-  min-width: 220px;
-  padding: 0.55rem;
-  border-radius: 16px;
-  display: grid;
-  gap: 0.15rem;
-  background: rgba(8, 16, 32, 0.96);
-}
-
-.nav-more-panel a {
-  padding: 0.55rem 0.65rem;
-  border-radius: 12px;
-  color: var(--muted);
-  font-size: 0.88rem;
-}
-
-.nav-more-panel a:hover {
-  background: rgba(61, 220, 255, 0.08);
-  color: var(--white);
+.site-nav ul li {
+  flex: 0 0 auto;
 }
 
 .site-nav a {
+  display: inline-block;
   padding: 0.45rem 0.62rem;
   border-radius: 999px;
-  font-size: 0.82rem;
+  font-size: clamp(0.8rem, 1.05vw, 0.86rem);
   color: var(--muted);
+  white-space: nowrap;
   transition: color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
 }
 
@@ -380,6 +351,9 @@ body.nav-open .nav-toggle-lines::after {
   }
 
   .site-nav {
+    flex: unset;
+    min-width: unset;
+    justify-content: stretch;
     position: absolute;
     inset-inline: clamp(16px, 4vw, 24px);
     top: calc(100% + 10px);
@@ -402,8 +376,21 @@ body.nav-open .nav-toggle-lines::after {
   }
 
   .site-nav ul {
+    display: flex;
     flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: stretch;
+    max-width: none;
+    overflow-x: visible;
     gap: 0.15rem;
+  }
+
+  .site-nav ul::-webkit-scrollbar {
+    display: none;
+  }
+
+  .site-nav ul li {
+    flex-basis: auto;
   }
 
   .site-nav a {
@@ -411,39 +398,39 @@ body.nav-open .nav-toggle-lines::after {
     padding: 0.55rem 0.75rem;
     border-radius: 10px;
   }
-
-  .nav-more summary {
-    width: 100%;
-    border-radius: 10px;
-  }
-
-  .nav-more-panel {
-    position: static;
-    min-width: unset;
-    margin-top: 0.4rem;
-  }
 }
 
 /* =====================================================================
    Objective / assignment callout
    ===================================================================== */
 .assignment-callout {
-  margin: 1.25rem 0 1.25rem;
+  margin: 1.25rem auto 1.25rem;
   padding: 1.1rem 1.25rem;
+  max-width: 720px;
+  text-align: center;
 }
 
 .assignment-callout .lead {
-  margin: 0.35rem 0 0.85rem;
+  margin: 0.35rem auto 0.85rem;
+  max-width: 62ch;
 }
 
 .assignment-list .clean-list {
   margin-top: 0.35rem;
+  text-align: left;
+  display: inline-block;
+  margin-inline: auto;
+}
+
+.assignment-list {
+  margin-top: 0.65rem;
 }
 
 /* =====================================================================
    HERO — REPLACE background image paths in HTML
    ===================================================================== */
 .hero {
+  scroll-margin-top: calc(var(--header-offset) + 12px);
   position: relative;
   min-height: min(92vh, 940px);
   display: grid;
@@ -573,6 +560,7 @@ body.nav-open .nav-toggle-lines::after {
   font-family: var(--font-display);
   font-size: clamp(1.8rem, 3.2vw, 2.45rem);
   margin: 0 0 0.75rem;
+  text-align: center;
 }
 
 .section-title + .section-intro,
@@ -584,6 +572,8 @@ body.nav-open .nav-toggle-lines::after {
   max-width: 68ch;
   color: var(--muted);
   margin: 0 0 1.75rem;
+  margin-inline: auto;
+  text-align: center;
 }
 
 .lead {
@@ -591,13 +581,23 @@ body.nav-open .nav-toggle-lines::after {
   color: #dbe8fb;
 }
 
+/* Body copy sitting under galleries / screenshots */
 .prose {
   max-width: 68ch;
   color: var(--muted);
+  margin-inline: auto;
+  text-align: center;
 }
 
 .prose-wide {
   max-width: 78ch;
+}
+
+/* Narrow sections: standalone lead paragraphs (not nested in cards/callouts) */
+.section .container.narrow > .lead {
+  max-width: 68ch;
+  margin-inline: auto;
+  text-align: center;
 }
 
 .stack-lg > * + * {
@@ -701,9 +701,31 @@ body.nav-open .nav-toggle-lines::after {
   padding: 1.1rem 1.25rem;
 }
 
+.tool-head {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.55rem;
+}
+
+.tool-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  flex: 0 0 auto;
+  object-fit: cover;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.28);
+}
+
 .tool-card h3 {
-  margin: 0 0 0.4rem;
+  margin: 0;
   font-size: 1.03rem;
+}
+
+.tool-card h3 {
+  margin: 0;
 }
 
 .tool-card p {
@@ -715,6 +737,11 @@ body.nav-open .nav-toggle-lines::after {
 /* =====================================================================
    Flow bar
    ===================================================================== */
+.stack-lg > .flow-bar {
+  max-width: 960px;
+  margin-inline: auto;
+}
+
 .flow-bar {
   padding: clamp(1rem, 3vw, 1.35rem);
   display: grid;
@@ -748,6 +775,9 @@ body.nav-open .nav-toggle-lines::after {
   margin-top: 1.85rem;
   padding: 1.15rem 1.35rem;
   color: #dee9fb;
+  margin-inline: auto;
+  max-width: min(72ch, 100%);
+  text-align: center;
 }
 
 /* =====================================================================
@@ -756,6 +786,7 @@ body.nav-open .nav-toggle-lines::after {
 .gallery {
   display: grid;
   gap: 1.35rem;
+  align-items: start;
 }
 
 .gallery-2 {
@@ -774,6 +805,9 @@ body.nav-open .nav-toggle-lines::after {
 .gallery-card {
   overflow: hidden;
   padding-bottom: 0.25rem;
+  align-self: start;
+  display: flex;
+  flex-direction: column;
 }
 
 .gallery-card button {
@@ -802,12 +836,215 @@ body.nav-open .nav-toggle-lines::after {
   background: rgba(0, 0, 0, 0.22);
 }
 
+.gallery-wayfinding img {
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  object-position: center;
+}
+
+.gallery-wayfinding figcaption {
+  padding-top: 0.6rem;
+}
+
 .compare-card img {
   aspect-ratio: auto;
   object-fit: contain;
   background: rgba(0, 0, 0, 0.22);
 }
 
+/* =====================================================================
+   Process / UI strips (adds rubric clarity without clutter)
+   ===================================================================== */
+.process-notes {
+  padding: 1rem 1.15rem;
+  margin: 0 auto 1.25rem;
+  max-width: min(640px, 100%);
+  text-align: center;
+}
+
+.process-notes h3 {
+  margin: 0 0 0.65rem;
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+}
+
+.process-notes .clean-list {
+  margin: 0 auto;
+  text-align: left;
+  width: fit-content;
+  max-width: 100%;
+}
+
+.ui-strip {
+  margin-top: 1.25rem;
+  padding: 1rem;
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1fr;
+  text-align: center;
+}
+
+.ui-strip .mini-card {
+  margin-inline: auto;
+  width: fit-content;
+  max-width: 100%;
+}
+
+.ui-strip .glow-pill {
+  margin-inline: auto;
+}
+
+@media (min-width: 900px) {
+  .ui-strip {
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items: start;
+  }
+}
+
+.mini-card {
+  margin-top: 0.45rem;
+  padding: 0.85rem 0.95rem;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(120, 200, 255, 0.14);
+  color: var(--muted);
+}
+
+.glow-pill {
+  margin-top: 0.45rem;
+  display: inline-flex;
+  padding: 0.5rem 0.7rem;
+  border-radius: 999px;
+  border: 1px solid rgba(61, 220, 255, 0.22);
+  background: rgba(61, 220, 255, 0.06);
+  color: #dff7ff;
+}
+
+/* =====================================================================
+   Rubric-support blocks
+   ===================================================================== */
+.rubric-bullets {
+  margin: 1.25rem auto;
+  padding: 1rem 1.15rem;
+  max-width: min(620px, 100%);
+  text-align: center;
+}
+
+.rubric-bullets h3 {
+  margin: 0 0 0.65rem;
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+}
+
+.rubric-bullets .clean-list {
+  display: inline-block;
+  margin: 0;
+  padding-left: 1.15rem;
+  text-align: left;
+}
+
+.link-row {
+  margin-top: 1rem;
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.btn[aria-disabled="true"] {
+  opacity: 0.55;
+  pointer-events: none;
+}
+
+.deliverable-grid {
+  margin-top: 1.25rem;
+  display: grid;
+  gap: 1rem;
+  justify-content: center;
+  justify-items: stretch;
+  grid-template-columns: minmax(min(100%, 320px), 440px);
+}
+
+@media (min-width: 900px) {
+  .deliverable-grid:has(> :nth-child(2)) {
+    grid-template-columns: repeat(2, minmax(0, 420px));
+  }
+}
+
+.deliverable-card {
+  padding: 1rem 1.15rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.deliverable-card h3 {
+  margin: 0 0 0.5rem;
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+}
+
+.deliverable-card p {
+  margin: 0 0 0.9rem;
+  color: var(--muted);
+}
+
+.deliverable-card .btn {
+  align-self: center;
+  min-width: 220px;
+}
+
+/* =====================================================================
+   Stepper (App as Interactive Product)
+   ===================================================================== */
+.how-it-works {
+  margin: 1.25rem 0;
+  padding: 1rem 1.15rem;
+}
+
+.how-it-works h3 {
+  margin: 0 0 0.75rem;
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  text-align: center;
+}
+
+.stepper {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 0.75rem;
+}
+
+.stepper li {
+  display: grid;
+  grid-template-columns: 32px 1fr;
+  gap: 0.75rem;
+  align-items: start;
+  padding: 0.75rem;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(120, 200, 255, 0.14);
+}
+
+.step-num {
+  width: 32px;
+  height: 32px;
+  border-radius: 12px;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(120deg, rgba(61, 220, 255, 0.18), rgba(79, 141, 255, 0.12));
+  border: 1px solid rgba(120, 200, 255, 0.22);
+  color: #e6f6ff;
+  font-weight: 700;
+  font-family: var(--font-display);
+}
+
+.stepper p {
+  margin: 0.25rem 0 0;
+  color: var(--muted);
+}
 .gallery-card {
   border-radius: var(--radius-lg);
 }
@@ -842,9 +1079,10 @@ body.nav-open .nav-toggle-lines::after {
 }
 
 figcaption {
-  padding: 0.85rem 1rem 0.25rem;
+  padding: 0.7rem 0.95rem 0.85rem;
   font-size: 0.93rem;
   color: var(--muted);
+  text-align: center;
 }
 
 .subgallery {
@@ -856,6 +1094,7 @@ figcaption {
   font-family: var(--font-display);
   font-size: 1.25rem;
   color: #e6f6ff;
+  text-align: center;
 }
 
 .ia-card img {
@@ -941,23 +1180,19 @@ figcaption {
   margin: 0;
   padding: 1rem 1.1rem;
   display: flex;
-  gap: 0.9rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.65rem 0.85rem;
   align-items: center;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-}
-
-.timeline::-webkit-scrollbar {
-  height: 10px;
-}
-
-.timeline::-webkit-scrollbar-thumb {
-  background: rgba(120, 200, 255, 0.18);
-  border-radius: 999px;
+  overflow: visible;
 }
 
 .timeline li {
-  flex: 0 0 auto;
+  flex: 0 1 auto;
+  display: flex;
+}
+
+.timeline-step {
   display: inline-flex;
   align-items: center;
   gap: 0.55rem;
@@ -965,9 +1200,21 @@ figcaption {
   border-radius: 999px;
   border: 1px solid rgba(120, 200, 255, 0.16);
   background: rgba(255, 255, 255, 0.03);
-  scroll-snap-align: start;
   color: var(--muted);
   white-space: nowrap;
+  text-decoration: none;
+  transition: color 0.2s ease, background 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.timeline-step:hover {
+  color: var(--white);
+  background: rgba(61, 220, 255, 0.08);
+  border-color: rgba(120, 200, 255, 0.28);
+}
+
+.timeline-step:focus-visible {
+  outline: 2px solid var(--cyan);
+  outline-offset: 3px;
 }
 
 .timeline .dot {
@@ -1010,6 +1257,17 @@ figcaption {
   font-size: 1.12rem;
 }
 
+.direction-grid > div.direction-card {
+  text-align: center;
+}
+
+.direction-grid > div.direction-card ul.clean-list {
+  margin-inline: auto;
+  text-align: left;
+  width: fit-content;
+  max-width: 100%;
+}
+
 .clean-list {
   list-style: none;
   padding: 0;
@@ -1045,6 +1303,10 @@ figcaption {
   grid-template-columns: 1fr;
 }
 
+.design-system-strip > div {
+  text-align: center;
+}
+
 @media (min-width: 900px) {
   .design-system-strip {
     grid-template-columns: 1.1fr 1fr 1.1fr;
@@ -1056,7 +1318,7 @@ figcaption {
   display: flex;
   gap: 0.6rem;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center;
 }
 
 .swatch {
@@ -1092,6 +1354,7 @@ figcaption {
   display: flex;
   gap: 0.5rem;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 .mini-btn {
@@ -1123,6 +1386,7 @@ figcaption {
 
 .test-card {
   padding: 1.1rem 1.25rem;
+  text-align: center;
 }
 
 .test-label {
@@ -1155,10 +1419,12 @@ figcaption {
    Quote + footer
    ===================================================================== */
 .quote {
-  margin: 0;
+  margin: 0 auto;
   padding: clamp(1.25rem, 3vw, 1.75rem);
   font-size: 1.05rem;
   color: #dbe8fb;
+  max-width: min(68ch, 100%);
+  text-align: center;
 }
 
 .quote p {

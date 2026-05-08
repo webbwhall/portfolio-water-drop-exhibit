@@ -8,7 +8,7 @@
   const nav = document.getElementById("site-nav");
   const navLinks = nav ? Array.from(nav.querySelectorAll("a[href^='#']")) : [];
   const navToggle = document.querySelector(".nav-toggle");
-  const sections = document.querySelectorAll("main section[id]");
+  const sections = Array.from(document.querySelectorAll("main section[id]"));
   const lightbox = document.getElementById("lightbox");
   const lightboxImg = document.getElementById("lightbox-image");
   const lightboxCaption = document.getElementById("lightbox-caption");
@@ -27,22 +27,13 @@
   }
 
   /* ------------------------------------------------------------------ */
-  /* Mobile navigation */
+  /* Mobile menu toggle */
   /* ------------------------------------------------------------------ */
   if (navToggle && nav) {
     navToggle.addEventListener("click", () => {
       const open = !document.body.classList.contains("nav-open");
       document.body.classList.toggle("nav-open", open);
       navToggle.setAttribute("aria-expanded", open ? "true" : "false");
-    });
-
-    nav.addEventListener("click", (e) => {
-      const anchor = e.target.closest("a");
-      if (!anchor) return;
-      document.body.classList.remove("nav-open");
-      navToggle.setAttribute("aria-expanded", "false");
-      // Close the \"More\" dropdown if it was open
-      nav.querySelectorAll("details[open]").forEach((d) => d.removeAttribute("open"));
     });
   }
 
@@ -67,32 +58,116 @@
   }
 
   /* ------------------------------------------------------------------ */
-  /* Active nav highlight — uses section visibility */
+  /* Active nav highlight — reliable scroll-based */
   /* ------------------------------------------------------------------ */
-  let activeId = "";
-  if (sections.length && "IntersectionObserver" in window) {
-    const headerH = () => (header ? header.getBoundingClientRect().height : 72);
-    const navObserver = new IntersectionObserver(
-      (entries) => {
-        const visible = entries
-          .filter((e) => e.isIntersecting)
-          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
-        if (!visible) return;
-        const id = visible.target.id;
-        if (!id || id === activeId) return;
-        activeId = id;
-        navLinks.forEach((link) => {
-          const href = link.getAttribute("href");
-          link.classList.toggle("is-active", href === `#${id}`);
-        });
-      },
-      {
-        threshold: [0.18, 0.28, 0.42, 0.55],
-        rootMargin: `-${Math.round(headerH() + 8)}px 0px -55% 0px`,
-      }
-    );
-    sections.forEach((sec) => navObserver.observe(sec));
+  function setActiveNav(id) {
+    navLinks.forEach((link) => {
+      const href = link.getAttribute("href");
+      link.classList.toggle("is-active", href === `#${id}`);
+    });
   }
+
+  function getHeaderOffset() {
+    return header ? Math.round(header.getBoundingClientRect().height) + 10 : 82;
+  }
+
+  function getNavSectionIds() {
+    const ids = new Set();
+    navLinks.forEach((link) => {
+      const href = link.getAttribute("href") || "";
+      if (href.startsWith("#") && href.length > 1) ids.add(href.slice(1));
+    });
+    return ids;
+  }
+
+  function scrollToAnchorTarget(target) {
+    if (!target) return;
+    const prefersReducedMotion = window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches;
+    const y = target.getBoundingClientRect().top + window.scrollY - getHeaderOffset();
+    window.scrollTo({ top: Math.max(0, Math.round(y)), behavior: prefersReducedMotion ? "auto" : "smooth" });
+  }
+
+  /* Same scroll math for header nav, hero CTAs, timeline chips, etc. */
+  document.body.addEventListener("click", (e) => {
+    const anchor = e.target.closest("a[href^='#']");
+    if (!anchor || anchor.closest("#lightbox")) return;
+    const href = anchor.getAttribute("href");
+    if (!href || href === "#") return;
+    const rawId = href.slice(1);
+    const id = rawId.includes("%") ? decodeURIComponent(rawId) : rawId;
+    const target = document.getElementById(id);
+    if (!target) return;
+    e.preventDefault();
+    if (nav?.contains(anchor)) {
+      document.body.classList.remove("nav-open");
+      navToggle?.setAttribute("aria-expanded", "false");
+    }
+    scrollToAnchorTarget(target);
+    if (history.replaceState) history.replaceState(null, "", `#${encodeURIComponent(id)}`);
+  });
+
+  let ticking = false;
+  function updateScrollSpy() {
+    ticking = false;
+    if (!sections.length || !navLinks.length) return;
+
+    const offset = getHeaderOffset();
+    const scrollY = window.scrollY || window.pageYOffset || 0;
+    const navIds = getNavSectionIds();
+
+    function clearHighlight() {
+      navLinks.forEach((link) => link.classList.remove("is-active"));
+    }
+
+    // If near bottom, highlight the last nav-linked section reached in the layout
+    const nearBottom = window.innerHeight + scrollY >= document.body.scrollHeight - 4;
+    if (nearBottom) {
+      for (let i = sections.length - 1; i >= 0; i -= 1) {
+        const id = sections[i].id;
+        if (id && navIds.has(id)) {
+          setActiveNav(id);
+          return;
+        }
+      }
+      clearHighlight();
+      return;
+    }
+
+    // Prefer the furthest-down nav section whose top passes the sticky header threshold
+    let currentNavId = null;
+    for (const sec of sections) {
+      const topAbs = sec.getBoundingClientRect().top + scrollY;
+      if (topAbs - offset <= scrollY + 2) {
+        if (navIds.has(sec.id)) currentNavId = sec.id;
+      } else {
+        break;
+      }
+    }
+
+    if (currentNavId) setActiveNav(currentNavId);
+    else clearHighlight();
+  }
+
+  function onScrollSpy() {
+    if (ticking) return;
+    ticking = true;
+    window.requestAnimationFrame(updateScrollSpy);
+  }
+
+  window.addEventListener("scroll", onScrollSpy, { passive: true });
+  window.addEventListener("resize", onScrollSpy, { passive: true });
+  updateScrollSpy();
+
+  /* Landing with #section in the URL lands under the sticky header */
+  function scrollToHashIfPresent() {
+    const hash = window.location.hash;
+    if (!hash || hash === "#") return;
+    const id = decodeURIComponent(hash.slice(1));
+    const target = document.getElementById(id);
+    if (!target) return;
+    requestAnimationFrame(() => scrollToAnchorTarget(target));
+  }
+  scrollToHashIfPresent();
 
   /* ------------------------------------------------------------------ */
   /* Lightbox */

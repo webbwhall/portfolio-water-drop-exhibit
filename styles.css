@@ -100,7 +100,8 @@ a {
   text-decoration: none;
 }
 
-a:not(.brand):hover,
+/* Do not hit .btn — it overrides gradient button text color and hurts contrast/layout */
+a:not(.brand):not(.btn):hover,
 .footer-link:hover {
   color: var(--cyan);
 }
@@ -185,15 +186,17 @@ a:not(.brand):hover,
 /* =====================================================================
    REVEAL / animation anchor (JS toggles .is-visible)
    ===================================================================== */
+/*
+ * Fade-only reveal (no translateY): combined transform on an ancestor breaks
+ * compositing at pill gradients and shows fringe/gaps on rounded corners on Windows/Chromium.
+ */
 .reveal {
   opacity: 0;
-  transform: translateY(22px);
-  transition: opacity 0.72s var(--ease-out), transform 0.72s var(--ease-out);
+  transition: opacity 0.72s var(--ease-out);
 }
 
 .reveal.is-visible {
   opacity: 1;
-  transform: translateY(0);
 }
 
 /* =====================================================================
@@ -203,6 +206,8 @@ a:not(.brand):hover,
   position: sticky;
   top: 0;
   z-index: 40;
+  isolation: isolate;
+  overflow-x: clip;
   background: rgba(4, 8, 22, 0.78);
   backdrop-filter: blur(16px);
   border-bottom: 1px solid var(--border-soft);
@@ -216,11 +221,12 @@ a:not(.brand):hover,
 
 .header-inner {
   display: flex;
+  flex-wrap: nowrap;
   align-items: center;
   justify-content: space-between;
   gap: 0.75rem;
   min-height: 72px;
-  padding-inline: clamp(12px, 3vw, 8px);
+  padding-inline: clamp(12px, 3vw, 24px);
 }
 
 .brand {
@@ -233,7 +239,7 @@ a:not(.brand):hover,
   color: var(--cyan);
 }
 
-/* Nav sits in the remaining width; scrolls horizontally instead of wrapping */
+/* Mobile / tablet drawer: burger + overlay below */
 .site-nav {
   flex: 1;
   min-width: 0;
@@ -243,27 +249,10 @@ a:not(.brand):hover,
 
 .site-nav ul {
   list-style: none;
-  padding: 0;
   margin: 0;
-  padding-block: 2px;
-  display: inline-flex;
-  flex-wrap: nowrap;
+  padding: 2px 0;
+  display: flex;
   align-items: center;
-  gap: clamp(0.12rem, 0.55vw, 0.38rem);
-  justify-content: flex-end;
-  max-width: 100%;
-  overflow-x: auto;
-  overscroll-behavior-x: contain;
-  scrollbar-width: thin;
-}
-
-.site-nav ul::-webkit-scrollbar {
-  height: 4px;
-}
-
-.site-nav ul::-webkit-scrollbar-thumb {
-  background: rgba(120, 200, 255, 0.22);
-  border-radius: 999px;
 }
 
 .site-nav ul li {
@@ -271,13 +260,80 @@ a:not(.brand):hover,
 }
 
 .site-nav a {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   padding: 0.45rem 0.62rem;
   border-radius: 999px;
   font-size: clamp(0.8rem, 1.05vw, 0.86rem);
   color: var(--muted);
   white-space: nowrap;
-  transition: color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+  border: 1px solid transparent;
+  transition: color 0.2s ease, background 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+@media (min-width: 961px) {
+  .header-inner {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: flex-start;
+    gap: clamp(0.85rem, 2.2vw, 1.75rem);
+    min-height: 72px;
+    padding-block: 0.65rem;
+  }
+
+  .brand {
+    flex: 0 0 auto;
+  }
+
+  /* Remaining width splits evenly across eight pills (same size, single row). */
+  .site-nav {
+    flex: 1 1 0;
+    min-width: 0;
+    display: flex;
+    justify-content: stretch;
+    align-items: stretch;
+  }
+
+  .site-nav ul {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    flex: 1 1 auto;
+    width: 100%;
+    min-width: 0;
+    align-items: stretch;
+    justify-content: flex-start;
+    gap: clamp(0.25rem, 0.55vw, 0.52rem);
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  .site-nav ul li {
+    flex: 1 1 0;
+    min-width: 0;
+    display: flex;
+  }
+
+  .site-nav a {
+    flex: 1 1 auto;
+    width: 100%;
+    min-width: 0;
+    justify-content: center;
+    padding: 0.44rem clamp(4px, 0.42vw, 9px);
+    font-size: clamp(0.7rem, 0.52vw + 0.61rem, 0.835rem);
+    font-weight: 500;
+    line-height: 1.22;
+    text-align: center;
+    white-space: nowrap;
+    box-sizing: border-box;
+  }
+
+  .nav-toggle {
+    display: none;
+  }
 }
 
 .site-nav a:hover {
@@ -285,10 +341,18 @@ a:not(.brand):hover,
   background: rgba(61, 220, 255, 0.08);
 }
 
+/* Solid white label — no cyan “glow text” pillow (gradient pill + shadow read luminous on navy) */
 .site-nav a.is-active {
-  color: var(--navy);
-  background: linear-gradient(120deg, var(--cyan), #8be8ff);
-  box-shadow: 0 12px 32px rgba(61, 220, 255, 0.18);
+  color: var(--white);
+  font-weight: 600;
+  background: rgba(61, 220, 255, 0.12);
+  border: 1px solid rgba(120, 200, 255, 0.42);
+  box-shadow: none;
+}
+
+.site-nav a.is-active:hover {
+  color: var(--white);
+  background: rgba(61, 220, 255, 0.18);
 }
 
 .nav-toggle {
@@ -354,9 +418,11 @@ body.nav-open .nav-toggle-lines::after {
     flex: unset;
     min-width: unset;
     justify-content: stretch;
+    display: block;
     position: absolute;
     inset-inline: clamp(16px, 4vw, 24px);
     top: calc(100% + 10px);
+    z-index: 50;
     padding: 0.75rem 1rem;
     border-radius: var(--radius-md);
     background: rgba(8, 16, 32, 0.96);
@@ -382,7 +448,7 @@ body.nav-open .nav-toggle-lines::after {
     align-items: stretch;
     max-width: none;
     overflow-x: visible;
-    gap: 0.15rem;
+    gap: 0.25rem;
   }
 
   .site-nav ul::-webkit-scrollbar {
@@ -547,10 +613,25 @@ body.nav-open .nav-toggle-lines::after {
 }
 
 .hero-actions {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 0.75rem;
-  justify-content: center;
+  width: min(540px, 100%);
+  margin-inline: auto;
+  align-items: stretch;
+}
+
+@media (max-width: 520px) {
+  .hero-actions {
+    grid-template-columns: 1fr;
+    width: min(320px, 100%);
+  }
+}
+
+.hero-actions .btn {
+  flex-shrink: 0;
+  width: 100%;
+  min-width: 0;
 }
 
 /* =====================================================================
@@ -626,34 +707,73 @@ body.nav-open .nav-toggle-lines::after {
   align-items: center;
   justify-content: center;
   gap: 0.45rem;
-  padding: 0.76rem 1.45rem;
+  padding: 0.76rem 1.55rem;
   border-radius: 999px;
   font-weight: 600;
   font-size: 0.95rem;
   border: 1px solid transparent;
-  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+  flex-shrink: 0;
+  max-inline-size: 100%;
+  box-sizing: border-box;
+  text-align: center;
+  white-space: nowrap;
+  transition:
+    box-shadow 0.22s ease,
+    border-color 0.22s ease,
+    background 0.22s ease,
+    color 0.22s ease,
+    backdrop-filter 0.22s ease;
 }
 
-.btn-primary {
-  background: linear-gradient(120deg, var(--cyan), var(--blue-glow));
-  color: var(--navy);
-  box-shadow: 0 14px 40px rgba(61, 220, 255, 0.22);
-}
-
-.btn-primary:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 22px 50px rgba(61, 220, 255, 0.28);
-}
-
+/*
+ * Pill CTAs share one default (ghost frost) look; hover/focus reveal gradient on ::before
+ * via opacity only — avoids transform/filter on the button which composited poorly here.
+ */
+.btn-primary,
 .btn-ghost {
-  border-color: rgba(255, 255, 255, 0.28);
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.28);
   color: var(--white);
+  background: transparent;
   backdrop-filter: blur(8px);
+  box-shadow: none;
 }
 
-.btn-ghost:hover {
-  border-color: var(--cyan);
-  color: var(--cyan);
+.btn-primary::before,
+.btn-ghost::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: inherit;
+  background: linear-gradient(120deg, var(--cyan), var(--blue-glow));
+  opacity: 0;
+  transition: opacity 0.24s ease;
+}
+
+.btn-primary:hover,
+.btn-primary:focus-visible,
+.btn-ghost:hover,
+.btn-ghost:focus-visible {
+  color: var(--navy);
+  border-color: transparent;
+  backdrop-filter: none;
+  box-shadow: 0 14px 36px rgba(61, 220, 255, 0.26);
+}
+
+.btn-primary:hover::before,
+.btn-primary:focus-visible::before,
+.btn-ghost:hover::before,
+.btn-ghost:focus-visible::before {
+  opacity: 1;
+}
+
+.btn-primary:focus-visible,
+.btn-ghost:focus-visible {
+  outline: 2px solid rgba(255, 255, 255, 0.85);
+  outline-offset: 3px;
 }
 
 .to-top {
@@ -949,6 +1069,13 @@ body.nav-open .nav-toggle-lines::after {
   gap: 0.75rem;
   flex-wrap: wrap;
   justify-content: center;
+  align-items: center;
+  width: min(100%, var(--max-width));
+  margin-inline: auto;
+}
+
+.link-row .btn {
+  flex-shrink: 0;
 }
 
 .btn[aria-disabled="true"] {

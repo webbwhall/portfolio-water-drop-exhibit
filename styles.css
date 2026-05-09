@@ -1,5 +1,5 @@
 /* =====================================================================
-   THEME — tweak colors/spacing here
+   THEME: tweak colors/spacing here
    ===================================================================== */
 :root {
   --bg-deep: #040814;
@@ -105,7 +105,7 @@ a {
   text-decoration: none;
 }
 
-/* Do not hit .btn — it overrides gradient button text color and hurts contrast/layout */
+/* Do not hit .btn: it overrides gradient button text color and hurts contrast/layout */
 a:not(.brand):not(.btn):hover,
 .footer-link:hover {
   color: var(--cyan);
@@ -126,7 +126,7 @@ a:not(.brand):not(.btn):hover,
 /* Skip link removed per assignment styling request */
 
 /* =====================================================================
-   UTILITIES — layout
+   UTILITIES: layout
    ===================================================================== */
 .container {
   width: min(100% - 2rem, var(--max-width));
@@ -205,7 +205,7 @@ a:not(.brand):not(.btn):hover,
 }
 
 /* =====================================================================
-   HEADER / NAV — sticky + mobile toggle
+   HEADER / NAV: sticky + mobile toggle
    ===================================================================== */
 .site-header {
   position: sticky;
@@ -346,7 +346,7 @@ a:not(.brand):not(.btn):hover,
   background: rgba(61, 220, 255, 0.08);
 }
 
-/* Solid white label — no cyan “glow text” pillow (gradient pill + shadow read luminous on navy) */
+/* Solid white label: no cyan “glow text” pillow (gradient pill + shadow read luminous on navy) */
 .site-nav a.is-active {
   color: var(--white);
   font-weight: 600;
@@ -505,7 +505,7 @@ body.nav-open .nav-toggle-lines::after {
 }
 
 /* =====================================================================
-   HERO — REPLACE background image paths in HTML
+   HERO: REPLACE background image paths in HTML
    ===================================================================== */
 .hero {
   scroll-margin-top: calc(var(--header-offset) + 12px);
@@ -747,7 +747,7 @@ body.nav-open .nav-toggle-lines::after {
 
 /*
  * Pill CTAs share one default (ghost frost) look; hover/focus reveal gradient on ::before
- * via opacity only — avoids transform/filter on the button which composited poorly here.
+ * via opacity only: avoids transform/filter on the button which composited poorly here.
  */
 .btn-primary,
 .btn-ghost {
@@ -801,7 +801,7 @@ body.nav-open .nav-toggle-lines::after {
 }
 
 /* =====================================================================
-   CARDS — overview, tools, testing
+   CARDS: overview, tools, testing
    ===================================================================== */
 .card-grid {
   display: grid;

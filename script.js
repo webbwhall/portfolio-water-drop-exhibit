@@ -58,7 +58,7 @@
   }
 
   /* ------------------------------------------------------------------ */
-  /* Active nav highlight — reliable scroll-based */
+  /* Active nav highlight: reliable scroll-based */
   /* ------------------------------------------------------------------ */
   function setActiveNav(id) {
     navLinks.forEach((link) => {

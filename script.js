@@ -87,7 +87,7 @@
     window.scrollTo({ top: Math.max(0, Math.round(y)), behavior: prefersReducedMotion ? "auto" : "smooth" });
   }
 
-  /* Same scroll math for header nav, hero CTAs, timeline chips, etc. */
+  /* Same scroll math for header nav and in-page anchor links */
   document.body.addEventListener("click", (e) => {
     const anchor = e.target.closest("a[href^='#']");
     if (!anchor || anchor.closest("#lightbox")) return;
